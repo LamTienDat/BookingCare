@@ -1,0 +1,70 @@
+.login-background {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    .login-container {
+        width: 400px;
+        height: 100%;
+        margin: 0 auto;
+        border-radius: 10px;
+        background-color: aliceblue;
+        .login-content {
+            padding: 10px;
+            .text-login {
+                text-align: center;
+                font-weight: 600;
+                font-size: 24px;
+                padding-top: 10px;
+            }
+            .login-input {
+                margin: 7px 0px;
+            }
+            .btn-login {
+                align-items: center;
+                width: 100%;
+                margin: 10px 0px;
+                border-radius: 5px;
+                height: 30px;
+                outline: none;
+                border: none;
+                color: aliceblue;
+                font-size: 15px;
+                background: linear-gradient(135deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+            }
+            .forgot-pw {
+                font-size: 12px;
+            }
+            .login-social {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                i {
+                margin: 20px 40px;
+                }
+                .google {
+                    font-size: 30px;
+                    color: white;
+                    background: rgb(201, 41, 41);
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .facebook {
+                    font-size: 30px;
+                    color: white;
+                    background: rgb(19, 97, 214);
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+        
+    }
+}
+
