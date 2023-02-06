@@ -29,7 +29,7 @@ class Login extends Component {
     });
   };
   handleLogin = () => {
-    console.log(this.state.username, this.state.password);
+    console.log(this.state);
   };
   handleShowHidePassword = () => {
     this.setState({
