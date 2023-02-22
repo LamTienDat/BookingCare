@@ -36,7 +36,34 @@ let getAllUsers = async (req, res) => {
     users,
   });
 };
+
+let handleCreateNewUser = async (req, res) => {
+  let message = await userService.createNewUser(req.body);
+  return res.status(200).json(message);
+};
+
+let handleDeleteUser = async (req, res) => {
+  let idUser = req.body.id;
+  if (!idUser) {
+    return res.status(200).json({
+      errCode: 1,
+      errMessage: "missing ID user!",
+    });
+  }
+  let message = await userService.deleteUser(idUser);
+  return res.status(200).json(message);
+};
+
+let handleEditUser = async (req, res) => {
+  let data = req.body;
+  let message = await userService.editUser(data);
+  return res.status(200).json(message);
+};
+
 module.exports = {
   handleLogin: handleLogin,
   getAllUsers: getAllUsers,
+  handleCreateNewUser: handleCreateNewUser,
+  handleDeleteUser: handleDeleteUser,
+  handleEditUser: handleEditUser,
 };
