@@ -3,11 +3,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAllUsers } from "../../services/userService";
 import "./UserManage.scss";
+import ModalUser from "./ModalUser";
 class UserManage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       arrUsers: [],
+      isOpenModalUser: false,
     };
   }
 
@@ -19,13 +21,37 @@ class UserManage extends Component {
       });
     }
   }
-
+  handleAddnewuser = () => {
+    this.setState({
+      isOpenModalUser: true,
+    });
+  };
+  toggleUserModal = () => {
+    this.setState({
+      isOpenModalUser: !this.state.isOpenModalUser,
+    });
+  };
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     let arrUsers = this.state.arrUsers;
     return (
-      <div className="text-center">
+      <div className="users-container">
+        <ModalUser
+          isOpen={this.state.isOpenModalUser}
+          toggleFromParent={this.toggleUserModal}
+        />
         <div className="title text-center">React with Ldat</div>
+        <div className="mx-1">
+          <button
+            className="btn btn-primary px-3"
+            onClick={() => {
+              this.handleAddnewuser();
+            }}
+          >
+            Add new user
+            <i className="fas fa-plus px-1"></i>
+          </button>
+        </div>
         <div className="users-table mt-3 mx-1">
           <table id="customers">
             <tr>
