@@ -1,51 +1,169 @@
 .home-header-container {
-    height: 60px ;
+  height: 60px;
+  width: 100%;
+  margin: 10px 0;
+  .home-header-content {
     width: 100%;
-    .home-header-content {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        .left-content {
-            width: 25%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0px 30px;
-            i {
-                font-size: 25px;
-                color: grey;
-            }
-            .heaader-logo{
-                background: url('./../../assets/images/logo.svg') center center no-repeat;
-                width: 160px;
-                height: 35px;
-                margin-left: 20px;
-            }
-        }
-        .center-content {
-                width: 50%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                .child-content {
-                    .sub-title {
-                        color: gray;
-                        font-size: 13px;
-                    }
-                }
-        }
-        .right-content {
-            width: 25%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .support {
-                margin: 2rem;
-                font-weight: 300px;
-                }
-                i {
-                    color: #45c3d2;
-                }   
-        }
+    height: 100%;
+    display: flex;
+    .left-content {
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 30px;
+      i {
+        font-size: 25px;
+        color: grey;
+      }
+      .heaader-logo {
+        background: url("./../../assets/images/logo.svg") center center
+          no-repeat;
+        width: 160px;
+        height: 35px;
+        margin-left: 20px;
+      }
     }
+    .center-content {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .child-content {
+        .sub-title {
+          color: gray;
+          font-size: 13px;
+        }
+      }
+    }
+    .right-content {
+      width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: end;
+      .support {
+        margin: 2rem;
+        font-weight: 300px;
+      }
+      .language-en {
+        margin: 0 5px;
+        cursor: pointer;
+        opacity: 0.1;
+        &.active {
+          opacity: 1;
+          span {
+            padding: 5px;
+            background-color: #45c3d2;
+            border-radius: 5px;
+          }
+        }
+      }
+      .language-vi {
+        margin: 0 5px;
+        cursor: pointer;
+        opacity: 0.1;
+
+        &.active {
+          opacity: 1;
+          span {
+            padding: 5px;
+            background-color: #45c3d2;
+            border-radius: 5px;
+          }
+        }
+      }
+      i {
+        color: #45c3d2;
+      }
+    }
+  }
+}
+.home-header-banner {
+  background: url(./../../assets/images/bookingcare-cover-4.jpg);
+  height: 485px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  .title1 {
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 1px 1px 1px #333;
+    color: white;
+    margin-bottom: 10px;
+    padding-top: 20px;
+  }
+
+  .title2 {
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 1px 1px 1px #333;
+    color: white;
+    margin-bottom: 60px;
+  }
+
+  .search {
+    display: flex;
+    background: #f7d800;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    width: 30%;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+    padding-left: 20px;
+    margin-bottom: 130px;
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+      padding-left: 27px;
+    }
+  }
+  .option {
+    padding: 5px;
+    height: 130px;
+    background-image: linear-gradient(
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 1)
+    );
+    display: flex;
+    justify-content: center;
+    .option-child {
+      width: 150px;
+      text-align: center;
+      color: black;
+      &:hover {
+        cursor: pointer;
+        color: #45c3d2;
+      }
+      .icon-child {
+        background-color: azure;
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        border-radius: 50%;
+        text-align: center;
+        margin: 0 auto;
+        align-items: center;
+        i {
+          color: #45c3d2;
+          font-size: 20px;
+          display: flex;
+          justify-content: center;
+        }
+      }
+      .text-child {
+        text-align: center;
+        font-size: 17px;
+        font-weight: 550;
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin: 0 auto;
+      }
+    }
+  }
 }
