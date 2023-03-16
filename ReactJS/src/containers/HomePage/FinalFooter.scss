@@ -1,0 +1,21 @@
+.final-footer {
+  background: #64b9e5;
+  color: #fff;
+  padding: 10px;
+  height: 78px;
+  .final-footer-content {
+    display: flex;
+    .left-content {
+      text-align: center;
+      width: 50%;
+    }
+    .right-content {
+      text-align: center;
+      flex: 1;
+      img {
+        width: 32px;
+        margin: 10px 10px 10px 0;
+      }
+    }
+  }
+}

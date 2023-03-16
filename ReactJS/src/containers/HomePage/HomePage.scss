@@ -85,3 +85,35 @@
     }
   }
 }
+.section-about {
+  padding: 0 9%;
+  width: 100%;
+  margin: auto;
+  h2.about-text-header {
+    margin: 0px 0px 20px -15px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .about-content {
+    display: flex;
+    .about-video {
+      width: 50%;
+    }
+    .about-list {
+      flex: 1;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          display: inline-block;
+          height: 50px;
+          min-width: 50px;
+          background: #fff;
+          border-radius: 5px;
+          margin: 5px;
+        }
+      }
+    }
+  }
+}

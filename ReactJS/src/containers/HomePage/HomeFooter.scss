@@ -1,0 +1,56 @@
+.home-footer {
+  padding: 30px 9%;
+  height: 360px;
+  width: 100%;
+  background: #efefef;
+  .footer-content {
+    display: flex;
+    .footer-content-infor {
+      width: 50%;
+      .footer-logo {
+        background: url("../../assets/images/logo.svg") center center no-repeat;
+        width: 160px;
+        height: 35px;
+        margin: 30px 0px;
+      }
+      .footer-agency {
+        h2 {
+          font-size: 14px;
+          font-weight: bold;
+          margin: 5px 0;
+        }
+      }
+    }
+    .footer-content-nav {
+      width: 25%;
+      ul {
+        list-style: none;
+        margin: 0px 0px 10px 0;
+        overflow-x: hidden;
+        li {
+          margin: 10px;
+
+          a {
+            text-decoration: none;
+            font-size: 14px;
+            color: #45c3d2;
+          }
+        }
+      }
+    }
+    .footer-content-other {
+      flex: 1;
+      .footer-loaction {
+        margin-bottom: 20px;
+      }
+      .footer-office {
+        margin-bottom: 20px;
+      }
+      .footer-support {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .footer-install {
+  }
+}
