@@ -26,6 +26,8 @@ let initWebRoutes = (app) => {
 
   router.put("/api/edit-user", userController.handleEditUser);
 
+  router.get("/allCode", userController.getAllCode);
+
   return app.use("/", router);
 };
 module.exports = initWebRoutes;
