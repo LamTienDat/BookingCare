@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { languages } from "../../utils/constant.js";
 import { changeLanguageApp } from "../../store/actions";
-
+import { FormattedMessage } from "react-intl";
 import * as actions from "../../store/actions";
 import Navigator from "../../components/Navigator";
 import { adminMenu } from "./menuApp";
@@ -13,9 +13,11 @@ class Header extends Component {
     this.props.changeLanguageAppRedux(language);
   };
   render() {
+    const { processLogout, userInfo } = this.props;
+
     let language = this.props.language;
     console.log(this.props.language);
-    const { processLogout } = this.props;
+    console.log(userInfo);
 
     return (
       <div className="header-container">
@@ -25,6 +27,10 @@ class Header extends Component {
         </div>
 
         <div className="languages">
+          <div className="welcome">
+            <FormattedMessage id="homeheader.welcome" />,{" "}
+            {userInfo && userInfo.lastName ? userInfo.lastName : " "}
+          </div>
           <div
             className={
               language === languages.EN ? "language-en active" : "language-en"
@@ -53,6 +59,7 @@ const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
     language: state.app.language,
+    userInfo: state.user.userInfo,
   };
 };
 

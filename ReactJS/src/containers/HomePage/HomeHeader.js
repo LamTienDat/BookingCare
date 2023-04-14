@@ -105,7 +105,7 @@ class HomeHeader extends Component {
           <div className="option">
             <div className="option-child">
               <div className="icon-child">
-                <i class="fas fa-hospital-alt"></i>
+                <i className="fas fa-hospital-alt"></i>
               </div>
               <div className="text-child">
                 <FormattedMessage id="option.specaility" />
@@ -113,7 +113,7 @@ class HomeHeader extends Component {
             </div>
             <div className="option-child">
               <div className="icon-child">
-                <i class="fas fa-mobile-alt"></i>
+                <i className="fas fa-mobile-alt"></i>
               </div>
               <div className="text-child">
                 <FormattedMessage id="option.remote" />
@@ -121,7 +121,7 @@ class HomeHeader extends Component {
             </div>
             <div className="option-child">
               <div className="icon-child">
-                <i class="far fa-clipboard"></i>
+                <i className="far fa-clipboard"></i>
               </div>
               <div className="text-child">
                 <FormattedMessage id="option.general-examination" />
@@ -129,7 +129,7 @@ class HomeHeader extends Component {
             </div>
             <div className="option-child">
               <div className="icon-child">
-                <i class="fas fa-stethoscope"></i>
+                <i className="fas fa-stethoscope"></i>
               </div>
               <div className="text-child">
                 <FormattedMessage id="option.medical-test" />
@@ -137,7 +137,7 @@ class HomeHeader extends Component {
             </div>
             <div className="option-child">
               <div className="icon-child">
-                <i class="far fa-user-circle"></i>
+                <i className="far fa-user-circle"></i>
               </div>
               <div className="text-child">
                 <FormattedMessage id="option.mental-health" />
@@ -145,7 +145,7 @@ class HomeHeader extends Component {
             </div>
             <div className="option-child">
               <div className="icon-child">
-                <i class="fas fa-user-md"></i>
+                <i className="fas fa-user-md"></i>
               </div>
               <div className="text-child">
                 <FormattedMessage id="option.dentist" />
@@ -153,7 +153,7 @@ class HomeHeader extends Component {
             </div>
             <div className="option-child">
               <div className="icon-child">
-                <i class="fas fa-procedures"></i>
+                <i className="fas fa-procedures"></i>
               </div>
               <div className="text-child">
                 <FormattedMessage id="option.surgery-package" />
@@ -161,7 +161,7 @@ class HomeHeader extends Component {
             </div>
             <div className="option-child">
               <div className="icon-child">
-                <i class="fas fa-toolbox"></i>
+                <i className="fas fa-toolbox"></i>
               </div>
               <div className="text-child">
                 <FormattedMessage id="option.medical-products" />
@@ -169,7 +169,7 @@ class HomeHeader extends Component {
             </div>
             <div className="option-child">
               <div className="icon-child">
-                <i class="far fa-heart"></i>
+                <i className="far fa-heart"></i>
               </div>
               <div className="text-child">
                 <FormattedMessage id="option.business-health" />
