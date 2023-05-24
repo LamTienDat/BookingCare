@@ -8,4 +8,8 @@ const getAllUsers = (inputId) => {
   return axios.get(`/api/get-all-users?id=${inputId}`);
 };
 
-export { handleLoginApi, getAllUsers };
+const getAllCodeService = (inputType) => {
+  return axios.get(`/api/allCode?type=${inputType}`);
+};
+
+export { handleLoginApi, getAllUsers, getAllCodeService };
