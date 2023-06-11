@@ -21,3 +21,13 @@
     cursor: pointer;
   }
 }
+
+.button {
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: fit-content;
+  }
+}

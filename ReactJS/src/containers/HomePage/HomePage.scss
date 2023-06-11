@@ -21,7 +21,9 @@
     }
   }
 }
-
+.slick-disabled {
+  display: none !important;
+}
 .slick-prev {
   height: 45px !important;
   width: 40px !important;

@@ -4,20 +4,28 @@ import "./HomeHeader.scss";
 import { FormattedMessage } from "react-intl";
 import { languages } from "../../utils/constant.js";
 import { changeLanguageApp } from "../../store/actions";
+import { withRouter } from "react-router";
 class HomeHeader extends Component {
   changeLanguage = (language) => {
     this.props.changeLanguageAppRedux(language);
   };
+  returnToHome = () => {
+    if (this.props.history) {
+      this.props.history.push(`/home`);
+    }
+  };
   render() {
     let language = this.props.language;
-    console.log(this.props.language);
     return (
       <React.Fragment>
         <div className="home-header-container">
           <div className="home-header-content">
             <div className="left-content">
               <i className="fas fa-bars"></i>
-              <div className="heaader-logo"></div>
+              <div
+                className="heaader-logo"
+                onClick={() => this.returnToHome()}
+              ></div>
             </div>
             <div className="center-content">
               <div className="child-content">
@@ -91,92 +99,94 @@ class HomeHeader extends Component {
             </div>
           </div>
         </div>
-        <div className="home-header-banner">
-          <div className="title1">
-            <FormattedMessage id="banner-text.1st-row" />
+        {this.props.isShowBanner === true && (
+          <div className="home-header-banner">
+            <div className="title1">
+              <FormattedMessage id="banner-text.1st-row" />
+            </div>
+            <div className="title2">
+              <FormattedMessage id="banner-text.2nd-row" />
+            </div>
+            <div className="search">
+              <i className="fas fa-search"></i>
+              <input type="text" placeholder="Tìm chuyên khoa" />
+            </div>
+            <div className="option">
+              <div className="option-child">
+                <div className="icon-child">
+                  <i className="fas fa-hospital-alt"></i>
+                </div>
+                <div className="text-child">
+                  <FormattedMessage id="option.specaility" />
+                </div>
+              </div>
+              <div className="option-child">
+                <div className="icon-child">
+                  <i className="fas fa-mobile-alt"></i>
+                </div>
+                <div className="text-child">
+                  <FormattedMessage id="option.remote" />
+                </div>
+              </div>
+              <div className="option-child">
+                <div className="icon-child">
+                  <i className="far fa-clipboard"></i>
+                </div>
+                <div className="text-child">
+                  <FormattedMessage id="option.general-examination" />
+                </div>
+              </div>
+              <div className="option-child">
+                <div className="icon-child">
+                  <i className="fas fa-stethoscope"></i>
+                </div>
+                <div className="text-child">
+                  <FormattedMessage id="option.medical-test" />
+                </div>
+              </div>
+              <div className="option-child">
+                <div className="icon-child">
+                  <i className="far fa-user-circle"></i>
+                </div>
+                <div className="text-child">
+                  <FormattedMessage id="option.mental-health" />
+                </div>
+              </div>
+              <div className="option-child">
+                <div className="icon-child">
+                  <i className="fas fa-user-md"></i>
+                </div>
+                <div className="text-child">
+                  <FormattedMessage id="option.dentist" />
+                </div>
+              </div>
+              <div className="option-child">
+                <div className="icon-child">
+                  <i className="fas fa-procedures"></i>
+                </div>
+                <div className="text-child">
+                  <FormattedMessage id="option.surgery-package" />
+                </div>
+              </div>
+              <div className="option-child">
+                <div className="icon-child">
+                  <i className="fas fa-toolbox"></i>
+                </div>
+                <div className="text-child">
+                  <FormattedMessage id="option.medical-products" />
+                </div>
+              </div>
+              <div className="option-child">
+                <div className="icon-child">
+                  <i className="far fa-heart"></i>
+                </div>
+                <div className="text-child">
+                  <FormattedMessage id="option.business-health" />
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="title2">
-            <FormattedMessage id="banner-text.2nd-row" />
-          </div>
-          <div className="search">
-            <i className="fas fa-search"></i>
-            <input type="text" placeholder="Tìm chuyên khoa" />
-          </div>
-          <div className="option">
-            <div className="option-child">
-              <div className="icon-child">
-                <i className="fas fa-hospital-alt"></i>
-              </div>
-              <div className="text-child">
-                <FormattedMessage id="option.specaility" />
-              </div>
-            </div>
-            <div className="option-child">
-              <div className="icon-child">
-                <i className="fas fa-mobile-alt"></i>
-              </div>
-              <div className="text-child">
-                <FormattedMessage id="option.remote" />
-              </div>
-            </div>
-            <div className="option-child">
-              <div className="icon-child">
-                <i className="far fa-clipboard"></i>
-              </div>
-              <div className="text-child">
-                <FormattedMessage id="option.general-examination" />
-              </div>
-            </div>
-            <div className="option-child">
-              <div className="icon-child">
-                <i className="fas fa-stethoscope"></i>
-              </div>
-              <div className="text-child">
-                <FormattedMessage id="option.medical-test" />
-              </div>
-            </div>
-            <div className="option-child">
-              <div className="icon-child">
-                <i className="far fa-user-circle"></i>
-              </div>
-              <div className="text-child">
-                <FormattedMessage id="option.mental-health" />
-              </div>
-            </div>
-            <div className="option-child">
-              <div className="icon-child">
-                <i className="fas fa-user-md"></i>
-              </div>
-              <div className="text-child">
-                <FormattedMessage id="option.dentist" />
-              </div>
-            </div>
-            <div className="option-child">
-              <div className="icon-child">
-                <i className="fas fa-procedures"></i>
-              </div>
-              <div className="text-child">
-                <FormattedMessage id="option.surgery-package" />
-              </div>
-            </div>
-            <div className="option-child">
-              <div className="icon-child">
-                <i className="fas fa-toolbox"></i>
-              </div>
-              <div className="text-child">
-                <FormattedMessage id="option.medical-products" />
-              </div>
-            </div>
-            <div className="option-child">
-              <div className="icon-child">
-                <i className="far fa-heart"></i>
-              </div>
-              <div className="text-child">
-                <FormattedMessage id="option.business-health" />
-              </div>
-            </div>
-          </div>
-        </div>
+        )}
       </React.Fragment>
     );
   }
@@ -195,4 +205,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HomeHeader)
+);

@@ -7,63 +7,82 @@ import doctorImage3 from "../../../assets/doctor/pgs-nguyen-thi-hoai-an.jpg";
 import doctorImage4 from "../../../assets/doctor/bs-duy-2022.jpg";
 import doctorImage5 from "../../../assets/doctor/gs-do-nhu-hon.jpg";
 import doctorImage6 from "../../../assets/doctor/bs-tran-huu-binh.jpg";
-
+import * as actions from "../../../store/actions";
 import Slider from "react-slick";
+import { FormattedMessage } from "react-intl";
+import { withRouter } from "react-router";
+
+import { languages } from "../../../utils/constant";
 
 class OutstandingDoctor extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      topDoctors: [],
+    };
+  }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.topDoctorsRedux !== this.props.topDoctorsRedux) {
+      this.setState({
+        topDoctors: this.props.topDoctorsRedux,
+      });
+    }
+  }
+  componentDidMount() {
+    this.props.loadTopDoctors();
+  }
+  handleViewDetailDoctor = (doctor) => {
+    console.log("view detail doctor", doctor);
+    this.props.history.push(`/detail_doctor/${doctor.id}`);
+  };
   render() {
+    let language = this.props.language;
+    let allDoctors = this.state.topDoctors;
+
     return (
       <div>
         <div className="section-specialty">
           <div className="section-container">
             <div className="section-header">
-              <span>Bác sĩ nổi bật tuần qua</span>
-              <button className="button-specialty">Tìm kiếm</button>
+              <span>
+                <FormattedMessage id="homepage.out-standing-doctor" />
+              </span>
+              <button className="button-specialty">
+                <FormattedMessage id="homepage.search" />
+              </button>
             </div>
             <div className="section-body">
               <Slider {...this.props.settings}>
-                <div className="section-body-content">
-                  <img className="doctor-img" src={doctorImage1} />
-                  <div className="doctor-title">
-                    Phó Giáo sư, Tiến sĩ, Bác sĩ cao cấp Nguyễn Duy Hưng
-                  </div>
-                  <div className="doctor-specialty">Da liễu</div>
-                </div>
-                <div className="section-body-content">
-                  <img className="doctor-img" src={doctorImage2} />
-                  <div className="doctor-title">
-                    Bác sĩ Chuyên khoa II Trần Minh Khuyên
-                  </div>
-                  <div className="doctor-specialty">Sức khỏe tâm thần</div>
-                </div>
-                <div className="section-body-content">
-                  <img className="doctor-img" src={doctorImage3} />
-                  <div className="doctor-title">
-                    Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
-                  </div>
-                  <div className="doctor-specialty">Tai Mũi Họng</div>
-                </div>
-                <div className="section-body-content">
-                  <img className="doctor-img" src={doctorImage4} />
-                  <div className="doctor-title">
-                    Tiến sĩ, Bác sĩ Chuyên khoa II Trà Anh Duy
-                  </div>
-                  <div className="doctor-specialty">Nam học</div>
-                </div>
-                <div className="section-body-content">
-                  <img className="doctor-img" src={doctorImage5} />
-                  <div className="doctor-title">
-                    Giáo sư, Thầy thuốc nhân dân Đỗ Như Hơn
-                  </div>
-                  <div className="doctor-specialty">Chuyên khoa Mắt</div>
-                </div>
-                <div className="section-body-content">
-                  <img className="doctor-img" src={doctorImage6} />
-                  <div className="doctor-title">
-                    PGS, TS, Giảng viên cao cấp Trần Hữu Bình
-                  </div>
-                  <div className="doctor-specialty">Sức khỏe tâm thần</div>
-                </div>
+                {allDoctors &&
+                  allDoctors.length > 0 &&
+                  allDoctors.map((item, index) => {
+                    let imageBase64 = "";
+                    if (item.image) {
+                      imageBase64 = new Buffer(item.image, "base64").toString(
+                        "binary"
+                      );
+                    }
+                    let nameVi = `${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`;
+                    let nameEn = `${item.positionData.valueEn}, ${item.lastName} ${item.firstName} `;
+
+                    return (
+                      <div
+                        className="section-body-content"
+                        onClick={() => this.handleViewDetailDoctor(item)}
+                      >
+                        <div
+                          className="doctor-img"
+                          style={{
+                            backgroundImage: `url(${imageBase64})`,
+                          }}
+                        ></div>
+                        <div className="doctor-title">
+                          {language === languages.VI ? nameVi : nameEn}
+                        </div>
+                        <div className="doctor-specialty">Da liễu</div>
+                      </div>
+                    );
+                  })}
               </Slider>
             </div>
           </div>
@@ -75,12 +94,18 @@ class OutstandingDoctor extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    language: state.app.language,
     isLoggedIn: state.user.isLoggedIn,
+    topDoctorsRedux: state.admin.topDoctors,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    loadTopDoctors: () => dispatch(actions.fetchTopDoctor()),
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor)
+);

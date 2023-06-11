@@ -7,6 +7,7 @@
   border: 1px solid gray !important;
   border-radius: 2px !important;
   height: 200px;
+  cursor: pointer;
   &:hover {
     cursor: pointer;
     color: #45c3d2;
@@ -15,7 +16,6 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-  }
-  .doctor-title {
+    background-size: cover;
   }
 }

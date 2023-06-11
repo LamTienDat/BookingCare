@@ -1,6 +1,7 @@
 import express from "express";
 import homeController from "../controllers/homeController";
 import userController from "../controllers/userController";
+import doctorControllers from "../controllers/doctorControllers";
 let router = express.Router();
 let initWebRoutes = (app) => {
   router.get("/", homeController.getHomePage);
@@ -26,7 +27,23 @@ let initWebRoutes = (app) => {
 
   router.put("/api/edit-user", userController.handleEditUser);
 
-  router.get("/allCode", userController.getAllCode);
+  router.get("/api/allCode", userController.getAllCode);
+
+  router.get("/api/top-doctor-home", doctorControllers.getTopDoctorHome);
+
+  router.get("/api/get-all-doctors", doctorControllers.getAllDoctors);
+
+  router.post("/api/save-info-doctor", doctorControllers.postInforDoctor);
+
+  router.get(
+    "/api/get-detai-doctor-by-id",
+    doctorControllers.getDetailDoctorById
+  );
+
+  router.get(
+    "/api/get-content-markdown-doctor",
+    doctorControllers.getContentMarkdown
+  );
 
   return app.use("/", router);
 };

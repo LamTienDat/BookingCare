@@ -1,0 +1,48 @@
+.doctor-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 95%;
+  margin: auto;
+  .doctor-info {
+    display: flex;
+    height: 150px;
+    width: 75%;
+    .content-left {
+      width: 10%;
+      height: 100%;
+      background-size: cover;
+      border: gray 1px solid;
+      border-radius: 50%;
+    }
+    .content-right {
+      margin-left: 20px;
+      flex: 1;
+      height: 100%;
+      padding-top: 25px;
+      padding-right: 150px;
+      .up {
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 25px;
+      }
+
+      .down {
+      }
+    }
+  }
+
+  .doctor-schedule {
+  }
+  .doctor-more {
+    background-color: #e1e1e1;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 30px;
+    width: 75%;
+    .content {
+      padding: 20px;
+    }
+  }
+}
