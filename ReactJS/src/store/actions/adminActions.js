@@ -131,10 +131,10 @@ export const editUser = (data) => {
         toast.success("edit user success !");
       } else {
         dispatch(editUserFailed());
-        toast.success("edit user failed !");
+        toast.error("edit user failed !");
       }
     } catch (e) {
-      toast.success("edit user failed !");
+      toast.error("edit user failed !");
       dispatch(editUserFailed());
     }
   };
@@ -268,6 +268,29 @@ export const saveDetailsDoctor = (data) => {
         type: actionTypes.SAVE_DETAILS_DOCTOR_FAILED,
       });
       toast.error("Save doctor failed !");
+    }
+  };
+};
+
+export const fetchAllShedule = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getAllCodeService("TIME");
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALL_SCHEDULE_SUCCESS,
+          dataSchedule: res.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_ALL_SCHEDULE_FAILED,
+        });
+      }
+    } catch (e) {
+      console.log("failed ");
+      dispatch({
+        type: actionTypes.FETCH_ALL_SCHEDULE_FAILED,
+      });
     }
   };
 };

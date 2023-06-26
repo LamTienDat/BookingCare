@@ -45,6 +45,9 @@ const getDetailDoctor = (inputId) => {
 const getContentMarkdown = (inputId) => {
   return axios.get(`/api/get-content-markdown-doctor?id=${inputId}`);
 };
+const bulkCreateSchedule = (data) => {
+  return axios.post("/api/bulk-create-schedule", data);
+};
 export {
   handleLoginApi,
   getAllUsers,
@@ -57,4 +60,5 @@ export {
   saveDetailDoctorsService,
   getDetailDoctor,
   getContentMarkdown,
+  bulkCreateSchedule,
 };

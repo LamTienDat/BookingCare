@@ -1,0 +1,26 @@
+.manage-schedule-container {
+  .manage-schedule-title {
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
+  .container {
+    .pick-time {
+      height: fit-content;
+      .time {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        .btn {
+          margin: auto;
+          border: 1px black solid;
+          &.active {
+            background-color: #ffac4a;
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import HomeHeader from "../../HomePage/HomeHeader";
 import "./DoctorDetails.scss";
 import { getDetailDoctor } from "../../../services/userService";
 import { languages } from "../../../utils/constant.js";
+import DoctorSchedule from "./DoctorSchedule";
 class DoctorDetails extends Component {
   constructor(props) {
     super(props);
@@ -62,7 +63,12 @@ class DoctorDetails extends Component {
               </div>
             </div>
           </div>
-          <div className="doctor-schedule"></div>
+          <div className="doctor-schedule">
+            <div className="content-left">
+              <DoctorSchedule />
+            </div>
+            <div className="content-right"></div>
+          </div>
           <div className="doctor-more">
             {detailDoctor &&
               detailDoctor.Markdown &&

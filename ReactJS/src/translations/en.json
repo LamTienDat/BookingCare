@@ -39,10 +39,20 @@
       "manage-specialty": "Manage Specialty",
       "handbook": "Hanbook",
       "manage-handbook": "Manage Hanbook"
+    },
+    "doctor": {
+      "doctor-manage": "Doctor Manage",
+      "doctor-schedule": "Manage Doctor's schedule"
     }
   },
   "homepage": {
     "out-standing-doctor": "Featured doctor of the week",
     "search": "Search"
+  },
+  "manage-schedule": {
+    "title": "Schedule Manage",
+    "choose-doctor": "Choose doctor",
+    "choose-date": "Choose date",
+    "choose-time": "Choose time"
   }
 }

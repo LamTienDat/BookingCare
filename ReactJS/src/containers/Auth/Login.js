@@ -6,6 +6,7 @@ import { handleLoginApi } from "../../services/userService";
 import * as actions from "../../store/actions";
 
 import "./Login.scss";
+import { every } from "lodash";
 // import { FormattedMessage } from "react-intl";
 
 class Login extends Component {
@@ -55,6 +56,11 @@ class Login extends Component {
       }
     }
   };
+  handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      this.handleLogin();
+    }
+  };
   handleShowHidePassword = () => {
     this.setState({
       isShowPassword: !this.state.isShowPassword,
@@ -84,6 +90,7 @@ class Login extends Component {
                   type={this.state.isShowPassword ? "text" : "password"}
                   className="form-control"
                   placeholder="Enter your password"
+                  onKeyDown={(event) => this.handleKeyDown(event)}
                 />
                 <span
                   onClick={() => {

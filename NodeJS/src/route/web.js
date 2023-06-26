@@ -45,6 +45,11 @@ let initWebRoutes = (app) => {
     doctorControllers.getContentMarkdown
   );
 
+  router.post(
+    "/api/bulk-create-schedule",
+    doctorControllers.bulkCreateSchedule
+  );
+
   return app.use("/", router);
 };
 module.exports = initWebRoutes;

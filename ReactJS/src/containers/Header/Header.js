@@ -1,29 +1,49 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { languages } from "../../utils/constant.js";
+import { USER_ROLE, languages } from "../../utils/constant.js";
 import { changeLanguageApp } from "../../store/actions";
 import { FormattedMessage } from "react-intl";
 import * as actions from "../../store/actions";
 import Navigator from "../../components/Navigator";
-import { adminMenu } from "./menuApp";
+import { adminMenu, doctorMenu } from "./menuApp";
 import "./Header.scss";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuApp: [],
+    };
+  }
   changeLanguage = (language) => {
     this.props.changeLanguageAppRedux(language);
   };
+
+  componentDidMount() {
+    const { userInfo } = this.props;
+    let menu = [];
+    if (userInfo && userInfo.roleId) {
+      let role = userInfo.roleId;
+      if (role === USER_ROLE.ADMIN) {
+        menu = adminMenu;
+      } else if (role === USER_ROLE.DOCTOR) {
+        menu = doctorMenu;
+      }
+    }
+    this.setState({
+      menuApp: menu,
+    });
+  }
+
   render() {
     const { processLogout, userInfo } = this.props;
-
     let language = this.props.language;
-    console.log(this.props.language);
-    console.log(userInfo);
 
     return (
       <div className="header-container">
         {/* thanh navigator */}
         <div className="header-tabs-container">
-          <Navigator menus={adminMenu} />
+          <Navigator menus={this.state.menuApp} />
         </div>
 
         <div className="languages">

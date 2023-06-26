@@ -54,7 +54,7 @@ let checkUserEmail = (userEmail) => {
       } else {
         resolve(false);
       }
-      resolve(users);
+      // resolve(user);
     } catch (e) {
       reject(e);
     }
@@ -177,11 +177,6 @@ let editUser = (data) => {
         }
 
         await user.save();
-        // await db.User.save({
-        //   firstName: data.firstName,
-        //   lastName: data.lastName,
-        //   address: data.address,
-        // });
         resolve({
           errCode: 0,
           message: `update user success`,
