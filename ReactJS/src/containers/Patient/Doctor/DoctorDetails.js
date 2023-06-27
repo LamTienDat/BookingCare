@@ -10,6 +10,7 @@ class DoctorDetails extends Component {
     super(props);
     this.state = {
       detailDoctor: {},
+      currentIdDoctor: "",
     };
   }
 
@@ -20,6 +21,9 @@ class DoctorDetails extends Component {
       this.props.match.params.id
     ) {
       let id = this.props.match.params.id;
+      this.setState({
+        currentIdDoctor: id,
+      });
       let res = await getDetailDoctor(id);
       if (res && res.errorCode === 0) {
         this.setState({
@@ -33,7 +37,7 @@ class DoctorDetails extends Component {
   render() {
     let { detailDoctor } = this.state;
     console.log("detailDoctor", detailDoctor);
-    let language = this.props.language;
+    let { language } = this.props;
     let nameEn = "";
     let nameVi = "";
     if (detailDoctor && detailDoctor.positionData) {
@@ -65,7 +69,7 @@ class DoctorDetails extends Component {
           </div>
           <div className="doctor-schedule">
             <div className="content-left">
-              <DoctorSchedule />
+              <DoctorSchedule doctorId={this.state.currentIdDoctor} />
             </div>
             <div className="content-right"></div>
           </div>

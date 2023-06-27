@@ -54,5 +54,10 @@
     "choose-doctor": "Choose doctor",
     "choose-date": "Choose date",
     "choose-time": "Choose time"
+  },
+  "patient": {
+    "detail-doctor": {
+      "schedule": "Schedule"
+    }
   }
 }

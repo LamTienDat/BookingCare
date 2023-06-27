@@ -54,5 +54,11 @@
     "choose-doctor": "Chọn bác sĩ",
     "choose-date": "Chọn ngày",
     "choose-time": "Chọn giờ khám"
+  },
+  "patient": {
+    "detail-doctor": {
+      "schedule": "Lịch khám",
+      "no-schedule": "Bác sĩ không có lịch vào ngày này"
+    }
   }
 }

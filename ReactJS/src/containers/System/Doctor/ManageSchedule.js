@@ -122,12 +122,15 @@ class ManageSchedule extends Component {
         doctorId: selectedDoctors.index,
         date: formatedDate,
       });
-      console.log("check bulk create schedule :", res);
+      if (res && res.errCode === 0) {
+        toast.success("Save success !");
+      }
       return result;
     }
   };
   render() {
     let rangeTime = this.state.rangeTime;
+    let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
     console.log(rangeTime);
     return (
       <div className="manage-schedule-container">
@@ -154,7 +157,7 @@ class ManageSchedule extends Component {
                 onChange={this.onChangeDatePicker}
                 className="form-control"
                 value={this.state.currenDate}
-                minDate={new Date()}
+                minDate={yesterday}
               />
             </div>
 
